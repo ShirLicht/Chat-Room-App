@@ -39,8 +39,14 @@ io.on("connection", socket => {
  //Disconnect
   socket.on("disconnect", () => {
       console.log(`${socket.username} has left the party.`)
+
+      //notify all the users that the user with the socket.username left the chat
+      io.emit('userLeft', socket.username);
+      //check what is the sockets index and remove it from the users array
+      users.splice(users.indexOf(socket), 1);
   });
 });
+
 http.listen(process.env.PORT || 3000, () => { console.log("Listening on port %s", process.env.PORT || 3000);});
 
 

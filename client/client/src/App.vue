@@ -3,18 +3,20 @@
       <div class="header">
             <h1>Chat Room</h1>
             <p class="username">Username: {{username}}</p>
-            <p class="online">Online Users: {{users.length}}</p>
-            
+            <p class="online">Online Users: {{users.length+1}}</p>
       </div>
+      <ChatRoom v-bind:messages="messages" v-on:sendMessage="this.sendMessage" />
   </div>
 </template>
 
 <script>
 import io from 'socket.io-client';
+import ChatRoom from './components/ChatRoom';
 
 export default {
   name: 'app',
   components: {
+    ChatRoom
   },
   data: function(){
     return{

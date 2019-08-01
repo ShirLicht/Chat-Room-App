@@ -3,7 +3,7 @@
       <div class="header">
             <h1>Chat Room</h1>
             <p class="username">Username: {{username}}</p>
-            <p class="online">Online Users: {{users.length+1}}</p>
+            <p class="online">Online Users: {{users.length}}</p>
       </div>
       <ChatRoom v-bind:messages="messages" v-on:sendMessage="this.sendMessage" />
   </div>

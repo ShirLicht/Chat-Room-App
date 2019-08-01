@@ -29,7 +29,7 @@ export default {
     methods:{
         sendMessage: function (){
           // if the message is blank - alert the user
-          if(!this.message){
+          if(!this.msg){
               alert("Please enter a message!");
               return;
           }

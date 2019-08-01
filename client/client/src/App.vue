@@ -88,6 +88,7 @@ body{
   margin: 0 auto;
   padding: 15px;
   text-align: center;
+  box-sizing: border-box;
 
 }
 </style>

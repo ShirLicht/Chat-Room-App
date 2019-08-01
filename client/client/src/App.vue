@@ -37,12 +37,18 @@ export default {
       this.listen();
   },
   listen: function () {
+
+    
     this.socket.on('userOnline', user => {
       this.users.push(user);
     });
 
     this.socket.on('userLeft', user => {
       this.users.splice(this.users.indexOf(user), 1);
+    });
+
+    this.socket.on('msg', message => {
+      this.messages.push(message);
     });
   }
 

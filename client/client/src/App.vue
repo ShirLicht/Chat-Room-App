@@ -52,6 +52,10 @@ export default {
     this.socket.on('msg', message => {
       this.messages.push(message);
     });
+  },
+  sendMessage: function (message) { 
+    //pass a message back to the server
+    this.socket.emit('msg', message);
   }
 
   },
@@ -82,6 +86,8 @@ body{
   //tablet size
   max-width: 768px;
   margin: 0 auto;
+  padding: 15px;
+  text-align: center;
 
 }
 </style>

@@ -11,7 +11,7 @@
             </div>
         </div>
         <form class="input-container" v-on:submit="sendMessage">
-            <input type="text" v-model="message">
+            <input type="text" v-model="msg">
             <button v-on:click="sendMessage" v-bind:disabled="!msg">Send</button>
         </form>
     </div>
@@ -75,7 +75,7 @@ export default {
 
         }
 
-        form{
+        .input-container{
             display: flex;
 
             input{

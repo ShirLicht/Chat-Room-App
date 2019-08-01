@@ -24,6 +24,37 @@ export default {
        messages: [],
        users: []
     }
+  },
+  methods:{
+    joinServer: function (){
+      this.socket.on("loggedIn", data => {
+        this.messages = data.messages;
+        this.users = data.users;
+        //pass back the new user name to the server
+        this.socket.emit('newuser', this.username);
+      });
+
+      this.listen();
+  },
+  listen: function () {
+    this.socket.on('userOnline', user => {
+      this.users.push(user);
+    });
+
+    this.socket.on('userLeft', user => {
+      this.users.splice(this.users.indexOf(user), 1);
+    });
+  }
+
+  },
+  mounted: function () {
+    this.username = prompt("Hello! :) please enter your username:","Anonymous");
+
+    if(!this.username){
+      this.username = "Anonymous";
+    }
+
+    this.joinServer();
   }
 }
 </script>
